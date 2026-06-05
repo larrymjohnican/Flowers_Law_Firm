@@ -12,6 +12,24 @@
 <link rel="stylesheet" href="brand.css" />
 <link rel="stylesheet" href="site.css" />
 <script>document.documentElement.classList.add('js');</script>
+<!-- ============================================================
+  EmailJS — wires the consultation form to send real emails.
+  Setup (one-time, ~5 minutes):
+  1. Sign up at https://www.emailjs.com (free: 200 emails/month)
+  2. Add an Email Service (connect Gmail or Outlook)
+  3. Create an Email Template. Map these variables:
+       {{from_name}}  — full name
+       {{from_email}} — email address
+       {{phone}}      — phone number
+       {{branch}}     — branch of service
+       {{message}}    — claim description
+  4. Replace the three CONFIGURE values below and in site.js
+============================================================ -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  /* CONFIGURE: replace with your EmailJS public key */
+  emailjs.init({ publicKey: 'YOUR_EMAILJS_PUBLIC_KEY' });
+</script>
 </head>
 <body>
 

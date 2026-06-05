@@ -106,6 +106,30 @@
       });
     });
 
+    var submitBtn = form.querySelector('[type="submit"]');
+
+    function showSuccess() {
+      var name = (form.querySelector('[name="name"]') || {}).value || '';
+      var first = name.trim().split(/\s+/)[0] || 'there';
+      if (success) {
+        var nameOut = document.getElementById('success-name');
+        if (nameOut) nameOut.textContent = first;
+        form.style.display = 'none';
+        success.classList.add('show');
+        var top = success.getBoundingClientRect().top + window.pageYOffset - 120;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    }
+
+    function showFormError() {
+      var existing = form.querySelector('.form-send-err');
+      if (existing) return;
+      var msg = document.createElement('p');
+      msg.className = 'form-send-err';
+      msg.textContent = 'Something went wrong sending your message. Please call (919) 438-3357 or email vetclaims@flowerslawfirm.info directly.';
+      form.querySelector('.form-foot').appendChild(msg);
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var allOk = true;
@@ -119,18 +143,24 @@
         if (firstBad) firstBad.focus();
         return;
       }
-      // success state
-      var name = (form.querySelector('[name="name"]') || {}).value || '';
-      var first = name.trim().split(/\s+/)[0] || 'there';
-      if (success) {
-        var nameOut = document.getElementById('success-name');
-        if (nameOut) nameOut.textContent = first;
-        form.style.display = 'none';
-        success.classList.add('show');
-        success.scrollIntoView ? null : null; // avoid scrollIntoView per guidance
-        var top = success.getBoundingClientRect().top + window.pageYOffset - 120;
-        window.scrollTo({ top: top, behavior: 'smooth' });
+
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+
+      // If EmailJS SDK didn't load, fall through to error message
+      if (typeof emailjs === 'undefined') {
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Request My Free Consultation'; }
+        showFormError();
+        return;
       }
+
+      /* CONFIGURE: replace with your EmailJS Service ID and Template ID */
+      emailjs.sendForm('YOUR_EMAILJS_SERVICE_ID', 'YOUR_EMAILJS_TEMPLATE_ID', form)
+        .then(function () {
+          showSuccess();
+        }, function () {
+          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Request My Free Consultation'; }
+          showFormError();
+        });
     });
   }
 

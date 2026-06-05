@@ -74,7 +74,11 @@
     <div class="portrait-wrap">
       <div class="portrait-frame">
         <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
-        <image-slot id="warren-hero" style="width:100%;height:100%" shape="rect" fit="cover" placeholder="Drop Warren's portrait"></image-slot>
+        <div class="portrait-placeholder" aria-label="Portrait of Warren Flowers">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="40" cy="28" r="16" stroke="currentColor" stroke-width="2"/><path d="M10 74c0-16.57 13.43-30 30-30s30 13.43 30 30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span>Warren Flowers</span>
+          <span class="pp-sub">Photo coming soon</span>
+        </div>
       </div>
       <div class="dossier">
         <div class="dh mono">Attorney of Record</div>
@@ -318,7 +322,6 @@
   </div>
 </footer>
 
-<script src="image-slot.js"></script>
 <script defer src="site.js"></script>
 </body>
 </html>

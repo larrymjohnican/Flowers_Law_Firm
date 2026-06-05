@@ -56,7 +56,11 @@
     <div class="portrait-wrap">
       <div class="portrait-frame">
         <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
-        <image-slot id="warren-about" style="width:100%;height:100%" shape="rect" fit="cover" placeholder="Drop Warren's portrait"></image-slot>
+        <div class="portrait-placeholder" aria-label="Portrait of Warren Flowers">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="40" cy="28" r="16" stroke="currentColor" stroke-width="2"/><path d="M10 74c0-16.57 13.43-30 30-30s30 13.43 30 30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span>Warren Flowers</span>
+          <span class="pp-sub">Photo coming soon</span>
+        </div>
       </div>
       <div class="dossier">
         <div class="dh mono">Attorney of Record</div>
@@ -75,7 +79,7 @@
       <span class="eyebrow rule">Meet Your Attorney</span>
       <h1>Warren Flowers</h1>
       <p>Warren Flowers served in the United States Air Force before he ever set foot in a courtroom. He knows what it means to wear the uniform — and he learned, like so many veterans do, that earning a benefit and receiving it are two very different things.</p>
-      <p>After his service, Warren became an attorney accredited by the Department of Veterans Affairs and admitted to the U.S. Court of Appeals for Veterans Claims. Today he devotes his practice entirely to one mission: making sure the men and women who served get every benefit the law allows.</p>
+      <p>After his service, Warren became an attorney accredited by the Department of Veterans Affairs <span class="cred-slot">[VA accreditation year, e.g. "since 2018"]</span> and admitted to the U.S. Court of Appeals for Veterans Claims. Today he devotes his practice entirely to one mission: making sure the men and women who served get every benefit the law allows.</p>
       <p>He founded Flowers Law Firm to put a veteran's claim in a veteran's hands. When you call, you don't reach a call center or a paralegal — you reach the attorney who will personally fight for your file.</p>
     </div>
   </div>
@@ -107,7 +111,7 @@
       <div class="cred">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="M6 10.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-5.5"/></svg>
         <h3>Juris Doctor</h3>
-        <p>A licensed attorney whose practice is devoted exclusively to veterans' benefits law.</p>
+        <p>A licensed attorney whose practice is devoted exclusively to veterans' benefits law. Graduate of <span class="cred-slot">[Law School Name]</span>.</p>
       </div>
       <div class="cred">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 0 20 15.3 15.3 0 0 1 0-20Z"/></svg>
@@ -184,7 +188,6 @@
   </div>
 </footer>
 
-<script src="image-slot.js"></script>
 <script defer src="site.js"></script>
 </body>
 </html>
