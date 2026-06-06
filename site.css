@@ -5,8 +5,8 @@
    Loaded after brand.css (which defines the design tokens).
    ============================================================ */
 
-*,*::before,*::after{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+*,*::before,*::after{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%;}
 body{
   margin:0;font-family:var(--sans);color:var(--fg);
   background:var(--ink-900);
@@ -262,11 +262,11 @@ p{margin:0;}
 .field{margin-bottom:18px;}
 .field label{display:block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--fg-soft);margin-bottom:8px;}
 .field label .req{color:var(--gold-mid);}
-.field input,.field select,.field textarea{width:100%;font-family:var(--sans);font-size:15px;color:var(--fg);
+.field input,.field select,.field textarea{width:100%;font-family:var(--sans);font-size:16px;color:var(--fg);
   background:rgba(16,14,10,.6);border:1px solid var(--hair-soft);border-radius:var(--r-sm);padding:13px 14px;
-  outline:none;transition:border-color .18s, box-shadow .18s;}
+  outline:none;transition:border-color .18s, box-shadow .18s;-webkit-appearance:none;appearance:none;}
 .field textarea{resize:vertical;min-height:120px;line-height:1.5;}
-.field select{appearance:none;cursor:pointer;
+.field select{cursor:pointer;
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%23D6AA46' d='M0 0h12L6 8z'/></svg>");
   background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;}
 .field input::placeholder,.field textarea::placeholder{color:var(--fg-mute);}
@@ -338,9 +338,12 @@ p{margin:0;}
   .page-hero h1{font-size:52px;}
 }
 @media (max-width:1024px){
-  .nav-links,.head-cta .btn-gold{display:none;}
+  .nav-links,.head-cta .btn-gold,.head-phone{display:none;}
   .menu-btn{display:inline-flex;}
   .home-hero .inner{grid-template-columns:1fr;gap:60px;}
+  .home-hero .inner>div:first-child{text-align:center;}
+  .home-hero .ctas{justify-content:center;}
+  .home-hero .filebar{justify-content:center;}
   .portrait-wrap{max-width:420px;margin:0 auto;width:100%;}
   .svc-grid{grid-template-columns:1fr 1fr;}
   .help-inner,.about-hero .inner,.contact-grid{grid-template-columns:1fr;gap:40px;}
