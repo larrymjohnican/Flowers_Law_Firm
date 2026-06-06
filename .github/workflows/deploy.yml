@@ -1,0 +1,34 @@
+name: Deploy to Vercel
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Vercel CLI
+        run: npm install -g vercel@latest
+
+      - name: Deploy to Vercel
+        run: |
+          set -o pipefail
+          vercel deploy \
+            --yes \
+            --prod \
+            --token=${{ secrets.VERCEL_TOKEN }} \
+            --scope=larrymjohnicans-projects \
+            --name=flowers-law-firm 2>&1 | tee deploy-output.txt
+          DEPLOY_URL=$(grep -oE 'https://[a-zA-Z0-9._-]+\.vercel\.app' deploy-output.txt | tail -1)
+          echo "DEPLOY_URL=$DEPLOY_URL" >> $GITHUB_ENV
+
+      - name: Print live URL
+        run: echo "Deployed to $DEPLOY_URL"

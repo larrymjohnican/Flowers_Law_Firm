@@ -1,0 +1,50 @@
+/* ============================================================
+   FLOWERS LAW FIRM — Brand tokens
+   Palette derived directly from the logo:
+   deep gold #C08000 · gold #D6AA46 · champagne #F3DD97
+   warm charcoal #15130E · cool grays #505050–#808080
+   ============================================================ */
+:root{
+  /* Gold ramp (from logo) */
+  --gold-deep:   #9A6E11;
+  --gold:        #C08000;
+  --gold-mid:    #D6AA46;
+  --gold-soft:   #E6C474;
+  --gold-champ:  #F3DD97;
+  --gold-grad:   linear-gradient(135deg,#F3DD97 0%,#D6AA46 42%,#B8860B 100%);
+  --gold-grad-v: linear-gradient(180deg,#F3DD97 0%,#D6AA46 55%,#A9790F 100%);
+
+  /* Ink / charcoal (warm, from logo's #302020) */
+  --ink-900: #100E0A;   /* deepest bg */
+  --ink-850: #15130E;   /* page bg */
+  --ink-800: #1B1812;   /* raised panel */
+  --ink-750: #221E17;   /* card */
+  --ink-700: #2A251D;   /* card hover / border base */
+
+  /* Warm off-whites for text on dark */
+  --paper:   #F7F2E7;   /* light panel bg */
+  --cream:   #FBF7EE;
+  --fg:      #F1EBDD;   /* primary text on dark */
+  --fg-soft: #C9C1B0;   /* secondary text on dark */
+  --fg-mute: #948C7B;   /* tertiary / captions */
+
+  /* Cool grays (laurel grays) */
+  --gray-1:#807F7B; --gray-2:#6B6A66; --gray-3:#56554F;
+
+  /* Lines */
+  --hair:        rgba(214,170,70,.22);   /* gold hairline */
+  --hair-soft:   rgba(241,235,221,.10);
+  --border:      rgba(241,235,221,.08);
+
+  /* Ink text on light panels */
+  --ink-fg:   #211C12;
+  --ink-fg-2: #4A4234;
+
+  /* Type */
+  --serif: 'Cormorant Garamond', 'Times New Roman', serif;
+  --sans:  'Source Sans 3', system-ui, -apple-system, sans-serif;
+
+  --r-sm:6px; --r-md:12px; --r-lg:18px; --r-xl:26px; --r-full:999px;
+  --shadow-gold: 0 0 60px rgba(214,170,70,.16);
+  --shadow-deep: 0 30px 70px -30px rgba(0,0,0,.7);
+}
