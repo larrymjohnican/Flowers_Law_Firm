@@ -20,14 +20,15 @@ jobs:
 
       - name: Deploy to Vercel
         run: |
+          set -o pipefail
           vercel deploy \
             --yes \
             --prod \
             --token=${{ secrets.VERCEL_TOKEN }} \
             --scope=larrymjohnicans-projects \
             --name=flowers-law-firm 2>&1 | tee deploy-output.txt
-          cat deploy-output.txt
-          echo "DEPLOY_URL=$(grep -oE 'https://[a-zA-Z0-9._-]+\.vercel\.app' deploy-output.txt | tail -1)" >> $GITHUB_ENV
+          DEPLOY_URL=$(grep -oE 'https://[a-zA-Z0-9._-]+\.vercel\.app' deploy-output.txt | tail -1)
+          echo "DEPLOY_URL=$DEPLOY_URL" >> $GITHUB_ENV
 
       - name: Print live URL
         run: echo "Deployed to $DEPLOY_URL"
