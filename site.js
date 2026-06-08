@@ -116,6 +116,7 @@
         if (nameOut) nameOut.textContent = first;
         form.style.display = 'none';
         success.classList.add('show');
+        window.va?.('event', { name: 'consultation_request' });
         var top = success.getBoundingClientRect().top + window.pageYOffset - 120;
         window.scrollTo({ top: top, behavior: 'smooth' });
       }
