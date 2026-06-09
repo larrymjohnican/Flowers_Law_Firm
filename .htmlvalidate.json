@@ -1,0 +1,10 @@
+{
+  "rules": {
+    "void-style": ["error", { "style": "selfclosing" }],
+    "tel-non-breaking": "off",
+    "no-inline-style": "off",
+    "no-implicit-button-type": "off",
+    "aria-label-misuse": "off",
+    "long-title": "off"
+  }
+}
